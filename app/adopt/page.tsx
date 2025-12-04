@@ -170,9 +170,6 @@ export default function AdoptPage() {
                 ))}
               </div>
             </div>
-
-            {/* Apply Filter Button */}
-            <button className="w-full bg-[#5F6F52] text-[#FEFAE0] py-2 px-4 rounded-md text-sm font-medium hover:bg-[#4a5a43] transition-colors">Apply Your Filter</button>
           </div>
 
           {/* Main Content */}

@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Kreon } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AuthModal from "./components/AuthModal";
+import { AuthProvider } from "./context/AuthContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const kreon = Kreon({
+  variable: "--font-kreon",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "PetResQ - Pet Adoption & Rescue",
-  description: "Find your perfect companion or help pets find their forever homes through PetResQ",
+  description:
+    "Find your perfect companion or help pets find their forever homes through PetResQ",
 };
 
 export default function RootLayout({
@@ -26,10 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+      <body className={`${kreon.variable} antialiased`}>
+        <AuthProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <AuthModal />
+        </AuthProvider>
       </body>
     </html>
   );
